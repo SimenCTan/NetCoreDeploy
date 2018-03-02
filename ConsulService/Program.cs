@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Autofac.Extensions.DependencyInjection;
 
 namespace ConsulService
 {
@@ -23,6 +24,7 @@ namespace ConsulService
                 .AddCommandLine(args).Build();
 
             return WebHost.CreateDefaultBuilder(args)
+                .ConfigureServices(service=>service.AddAutofac())
                 .ConfigureAppConfiguration(config =>
                 {
                     config.AddJsonFile("appsettings.json", false, true);
