@@ -34,7 +34,7 @@ namespace ConsulClientSite.Controllers
             {
                 var firstAddress=model.DnsResult.First().AddressList.FirstOrDefault();
                 if(firstAddress!=null)
-                {
+                {                                      
                     var port=model.DnsResult.First().Port;
                     using(var client=new HttpClient())
                     {
